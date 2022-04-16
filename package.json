@@ -1,0 +1,24 @@
+{
+  "name": "trov-components",
+  "version": "0.0.1",
+  "description": "A set of components / fields to extend Filament Admin.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx mix",
+    "watch": "npx mix watch",
+    "watch-poll": "npx mix watch -- --watch-options-poll=1000",
+    "hot": "npx mix watch --hot",
+    "production": "npx mix --production"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Adam Weston",
+    "email": "awcodes1@gmail.com",
+    "url": "https://www.awcodes.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "laravel-mix": "^6.0.43",
+    "tailwindcss": "^3.0.23"
+  }
+}
