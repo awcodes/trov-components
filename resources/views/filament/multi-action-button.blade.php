@@ -14,6 +14,7 @@ unset($actions[0]);
 
 <div class="relative"
     x-ref="wrapper"
+    wire:ignore.self
     x-data="{
         open: false,
         init() {
@@ -80,7 +81,7 @@ unset($actions[0]);
                         :type="$action->canSubmitForm() ? 'submit' : 'button'"
                         :color="$action->getColor()"
                         :disabled="$action->isDisabled()"
-                        class="filament-page-button-action">
+                        class="whitespace-nowrap filament-page-button-action">
                         {{ $action->getLabel() }}
                     </x-filament::button>
                 @endif
