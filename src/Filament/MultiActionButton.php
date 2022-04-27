@@ -8,6 +8,8 @@ use Filament\Pages\Actions\Concerns;
 class MultiActionButton extends Action
 {
     use Concerns\CanSubmitForm;
+    use Concerns\HasTooltip;
+    use Concerns\CanBeOutlined;
 
     protected string $view = 'trov-components::filament.multi-action-button';
 

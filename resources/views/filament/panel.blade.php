@@ -7,10 +7,10 @@
         ]) }}
     {{ $getExtraAlpineAttributeBag() }}>
     <div @class([
-        'flex items-center px-4 py-2 bg-gray-200 rtl:space-x-reverse overflow-hidden rounded-t-xl',
+        'flex items-center px-4 py-2 bg-gray-100 rtl:space-x-reverse overflow-hidden rounded-t-xl',
         'dark:bg-gray-900' => config('forms.dark_mode'),
     ])
-        x-bind:class="{'rounded-b-xl': isCollapsed}">
+        x-bind:class="{ 'rounded-b-xl': isCollapsed }">
         <div class="flex-1">
             <h3 class="text-xl font-bold tracking-tight">
                 {{ $getHeading() }}
@@ -29,7 +29,7 @@
         @if ($isCollapsible())
             <button x-on:click="isCollapsed = ! isCollapsed"
                 x-bind:class="{
-                    '-rotate-180': ! isCollapsed,
+                    '-rotate-180': !isCollapsed,
                 }"
                 type="button"
                 class="flex items-center justify-center w-8 h-8 transform rounded-full text-primary-500 hover:bg-gray-500/5 focus:bg-primary-500/10 focus:outline-none">
