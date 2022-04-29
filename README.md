@@ -46,13 +46,6 @@ Add the following to either Your EditPage or CreatePage resources, or both. And 
 
 ```php
 protected bool $hasMultiActionButton = true;
-
-public function hasMultiActionButton()
-{
-    return property_exists($this, 'hasMultiActionButton')
-        ? $this->hasMultiActionButton
-        : false;
-}
 ```
 
 ## Forms

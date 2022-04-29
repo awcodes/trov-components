@@ -9,7 +9,7 @@
         {{ $heading }}
     </x-filament::header.heading>
 
-    @if (($this instanceof \Filament\Resources\Pages\EditRecord || $this instanceof \Filament\Resources\Pages\CreateRecord) && $this->hasMultiActionButton())
+    @if (property_exists($this, 'hasMultiActionButton') && $this->hasMultiActionButton)
         <x-trov-components::multi-action-button :actions="$actions"
             class="shrink-0" />
     @else
