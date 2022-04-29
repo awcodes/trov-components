@@ -26,14 +26,14 @@ class PasswordGenerator extends TextInput
         return $this;
     }
 
-    public function hasNumbers(int $hasNumbers): static
+    public function hasNumbers(bool $hasNumbers): static
     {
         $this->hasNumbers = $hasNumbers;
 
         return $this;
     }
 
-    public function hasSymbols(int $hasSymbols): static
+    public function hasSymbols(bool $hasSymbols): static
     {
         $this->hasSymbols = $hasSymbols;
 

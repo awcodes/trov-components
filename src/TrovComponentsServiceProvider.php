@@ -18,7 +18,8 @@ class TrovComponentsServiceProvider extends PluginServiceProvider
         $package
             ->name('trov-components')
             ->hasAssets()
-            ->hasViews();
+            ->hasViews()
+            ->hasCommand(Commands\MakeMultiActionButton::class);
     }
 
     public function boot()

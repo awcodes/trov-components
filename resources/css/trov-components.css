@@ -2,16 +2,20 @@
 
 /* Date Input */
 .dark input[type="date"] {
-    color-scheme: dark;
+  color-scheme: dark;
 }
 
 /* Fixed Sidebar */
 .fixed-sidebar > .grid {
-    grid-template-columns: repeat(1fr);
+  grid-template-columns: repeat(1fr);
+}
+
+.trov-multi-action-button .filament-page-button-action {
+  white-space: nowrap;
 }
 
 @screen lg {
-    .fixed-sidebar > .grid {
-        grid-template-columns: minmax(50%, auto) minmax(150px, 300px);
-    }
+  .fixed-sidebar > .grid {
+    grid-template-columns: minmax(50%, auto) minmax(150px, 300px);
+  }
 }
