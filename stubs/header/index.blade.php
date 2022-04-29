@@ -9,7 +9,7 @@
         {{ $heading }}
     </x-filament::header.heading>
 
-    @if (property_exists($this, 'hasMultiActionButton') && $this->hasMultiActionButton)
+    @if (property_exists($this, 'hasMultiActionButton') && $this->hasMultiActionButton && count($actions) > 1)
         <x-trov-components::multi-action-button :actions="$actions"
             class="shrink-0" />
     @else
