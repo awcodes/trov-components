@@ -52,15 +52,17 @@ protected bool $hasMultiActionButton = true;
 
 ### **Date Input**
 
-TODO: write more about the methods.
+![date input]('./images/date-input.png')
 
 ```php
 DateInput::make(string $fieldname)
     ->label('Publish Date')
-    ->withoutTime()
+    ->withoutTime() //optional
 ```
 
 ### **Password Generator**
+
+![password generator]('./images/password-generator.png')
 
 All methods from TextInput are available.
 
@@ -72,6 +74,8 @@ PasswordGenerator::make(string $fieldname)
 ```
 
 ### **Title With Slug**
+
+![title with slug]('./images/title-with-slug.png')
 
 Creates a TextInput with the ability to modify the slug after creation, but preserves the slug when editing to help with SEO.
 
@@ -103,10 +107,14 @@ Timestamps::make()
 
 ### **Title With Status Indicator**
 
-This component requires that you have a status field on your model.
+![title with status]('./images/title-with-status.png')
 
 ```php
-TitleWithStatus::make(string $fieldname = 'title'),
+TitleWithStatus::make(string $fieldname = 'title')
+    ->statusField(string $fieldname = 'status') // optional
+    ->statuses(Status::class)
+    ->hiddenOn(Status::Published->name)
+    ->colors(Status::colors())
 ```
 
 ### **Soft Delete Filter**
