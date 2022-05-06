@@ -114,9 +114,9 @@ Timestamps::make()
 ```php
 TitleWithStatus::make(string $fieldname = 'title')
     ->statusField(string $fieldname = 'status') // optional
-    ->statuses(Status::class)
-    ->hiddenOn(Status::Published->name)
-    ->colors(Status::colors())
+    ->statuses(array | Arrayable (Enum) Status::class)
+    ->colors(array | Arrayable (Enum) Status::colors())
+    ->hiddenOn(string | null Status::Published->name) //optional
 ```
 
 ### **Soft Delete Filter**
