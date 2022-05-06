@@ -49,13 +49,6 @@ class DateInput extends Field
         $this->rule('date', true);
     }
 
-    public function format(string | Closure | null $format): static
-    {
-        $this->format = $format;
-
-        return $this;
-    }
-
     public function maxDate(DateTime | string | Closure | null $date): static
     {
         $this->maxDate = $date;
@@ -95,25 +88,6 @@ class DateInput extends Field
         $this->isWithoutTime = $condition;
 
         return $this;
-    }
-
-    public function getFormat(): string
-    {
-        $format = $this->evaluate($this->format);
-
-        if ($format) {
-            return $format;
-        }
-
-        $format = $this->hasDate() ? 'Y-m-d' : '';
-
-        if (!$this->hasTime()) {
-            return $format;
-        }
-
-        $format = $format ? "{$format} H:i" : 'H:i';
-
-        return "{$format}:s";
     }
 
     public function getMaxDate(): ?string
