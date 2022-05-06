@@ -39,9 +39,9 @@ class DateInput extends Field
 
             if ($this->hasTime()) {
                 $state = $state->toDateTimeLocalString();
+            } else {
+                $state = $state->format('Y-m-d');
             }
-
-            $state = $state->format('Y-m-d');
 
             $component->state($state);
         });
