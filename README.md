@@ -6,7 +6,7 @@ A set of components, fields and layouts to extend Filament Admin with components
 
 ### **Panel**
 
-![panel]('images/panel.png')
+![panel](images/panel.png)
 
 All setting on the panel are optional.
 
@@ -54,7 +54,7 @@ protected bool $hasMultiActionButton = true;
 
 ### **Date Input**
 
-![date input]('images/date-input.png')
+![date input](images/date-input.png)
 
 ```php
 DateInput::make(string $fieldname)
@@ -64,7 +64,7 @@ DateInput::make(string $fieldname)
 
 ### **Password Generator**
 
-![password generator]('images/password-generator.png')
+![password generator](images/password-generator.png)
 
 All methods from TextInput are available.
 
@@ -77,7 +77,7 @@ PasswordGenerator::make(string $fieldname)
 
 ### **Title With Slug**
 
-![title with slug]('images/title-with-slug.png')
+![title with slug](images/title-with-slug.png) ![title with slug open](images/title-with-slug-open.png)
 
 Creates a TextInput with the ability to modify the slug after creation, but preserves the slug when editing to help with SEO.
 
@@ -109,7 +109,7 @@ Timestamps::make()
 
 ### **Title With Status Indicator**
 
-![title with status]('images/title-with-status.png')
+![title with status](images/title-with-status.png)
 
 ```php
 TitleWithStatus::make(string $fieldname = 'title')
