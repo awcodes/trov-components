@@ -6,6 +6,8 @@ A set of components, fields and layouts to extend Filament Admin with components
 
 ### **Panel**
 
+![panel]('./images/panel.png')
+
 All setting on the panel are optional.
 
 ```php
