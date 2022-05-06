@@ -2,32 +2,92 @@
 
 namespace TrovComponents\Tables\Columns;
 
-use TrovComponents\Enums\Status;
-use Illuminate\Support\HtmlString;
 use Filament\Tables\Columns\TextColumn;
 
 class TitleWithStatus extends TextColumn
 {
-    protected function setUp(): void
+    protected string $view = 'trov-components::tables.columns.title-with-status';
+
+    protected string | null $hiddenOn = null;
+
+    protected string | null $statusField = 'status';
+
+    protected array | Arrayable | string | Closure | null $statuses = null;
+
+    protected array | Closure $colors = [];
+
+    public function statusField(string | null $statusField): static
     {
-        $this->formatStateUsing(function ($record, $state) {
-            if ($record->front_page) {
-                return new HtmlString($state . ' — <strong class="px-2 py-1 text-xs text-white rounded-md bg-success-600">Front Page</strong>');
-            }
+        $this->statusField = $statusField;
 
-            if ($record->deleted_at) {
-                return new HtmlString($state . ' — <strong class="px-2 py-1 text-xs text-white rounded-md bg-danger-600 dark:bg-danger-600/50">Trashed</strong>');
-            }
+        return $this;
+    }
 
-            if ($record->status == Status::Draft->name) {
-                return new HtmlString($state . ' — <strong class="px-2 py-1 text-xs text-white rounded-md bg-black/50">Draft</strong>');
-            }
+    public function hiddenOn(string | null $hidden): static
+    {
+        $this->hiddenOn = $hidden;
 
-            if ($record->status == Status::Review->name) {
-                return new HtmlString($state . ' — <strong class="px-2 py-1 text-xs text-white rounded-md bg-warning-600 dark:bg-warning-600/50">In Review</strong>');
-            }
+        return $this;
+    }
 
-            return $state;
-        });
+    public function statuses(array | Arrayable | string | Closure | null $statuses): static
+    {
+        $this->statuses = $statuses;
+
+        return $this;
+    }
+
+    public function colors(array | Closure $colors): static
+    {
+        $this->colors = $colors;
+
+        return $this;
+    }
+
+    public function getHiddenOn(): ?string
+    {
+        return $this->hiddenOn;
+    }
+
+    public function getStatuses(): array
+    {
+        $statuses = $this->evaluate($this->statuses);
+
+        if ($statuses === null) {
+            $statuses = $this->queriesRelationships() ? $this->getRelationshipOptions() : [];
+        }
+
+        if (is_string($statuses) && function_exists('enum_exists') && enum_exists($statuses)) {
+            $statuses = collect($statuses::cases())->mapWithKeys(fn ($case) => [($case?->value ?? $case->name) => $case->name])->toArray();
+        }
+
+        if ($statuses instanceof Arrayable) {
+            $statuses = $statuses->toArray();
+        }
+
+        return $statuses;
+    }
+
+    public function getStatusColor(): ?string
+    {
+        $record = $this->getRecord();
+        $optionColor = null;
+
+        foreach ($this->getColors() as $color => $condition) {
+            if (is_numeric($color)) {
+                $optionColor = $condition;
+            } elseif ($condition instanceof Closure && $condition($state, $this->getRecord())) {
+                $optionColor = $color;
+            } elseif ($condition === $record->{$this->statusField}) {
+                $optionColor = $color;
+            }
+        }
+
+        return $optionColor;
+    }
+
+    public function getColors(): array
+    {
+        return $this->evaluate($this->colors);
     }
 }
