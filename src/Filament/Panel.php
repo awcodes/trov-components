@@ -42,6 +42,11 @@ class Panel extends Component implements CanConcealComponents
         $this->columnSpan('full');
     }
 
+    public function canConcealComponents(): bool
+    {
+        return $this->isCollapsible();
+    }
+
     public function collapsed(bool | Closure $condition = true): static
     {
         $this->isCollapsed = $condition;
