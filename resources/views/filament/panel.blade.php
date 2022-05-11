@@ -10,7 +10,9 @@
         'flex items-center px-4 py-2 bg-gray-100 rtl:space-x-reverse overflow-hidden rounded-t-xl',
         'dark:bg-gray-900' => config('forms.dark_mode'),
     ])
-        x-bind:class="{ 'rounded-b-xl': isCollapsed }">
+        @if ($isCollapsible())
+        x-bind:class="{ 'rounded-b-xl': isCollapsed }"
+        @endif>
         <div class="flex-1">
             <h3 class="text-xl font-bold tracking-tight">
                 {{ $getHeading() }}
