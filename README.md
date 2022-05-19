@@ -1,8 +1,10 @@
 # Trov Components
 
-A set of components, fields and layouts to extend Filament Admin with components used in [Trov CMS](https://github.com/awcodes/trov).
+A set of components, fields and layouts to extend Filament Admin.
 
-## Filament Admin
+Used by [Trov CMS](https://github.com/awcodes/trov).
+
+## Admin
 
 ### **Panel**
 
@@ -103,6 +105,20 @@ Outputs Created At and Updated At information blocks.
 
 ```php
 Timestamps::make()
+```
+
+### **Video Embed**
+
+![video-embed](images/video-embed.png)
+
+Allows embeded code with preview. This field does not sanitize your values. You are responsible for purifying any raw html input or output.
+
+Supports most of the Textarea field's options.
+
+```php
+VideoEmbed::make(string $fieldname)
+    ->label('label')
+    ->rows()
 ```
 
 ## Tables
