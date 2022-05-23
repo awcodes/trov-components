@@ -6,20 +6,6 @@ Used by [Trov CMS](https://github.com/awcodes/trov).
 
 ## Admin
 
-### **Panel**
-
-![panel](images/panel.png)
-
-All setting on the panel are optional.
-
-```php
-Panel::make('Details')
-    ->collapsible()
-    ->isCollapsed()
-    ->heading('Overwrites make string')
-    ->desciption('Description goes here.')
-```
-
 ### **Fixed Sidebar Layout**
 
 Just return it directly from your form function in your model resource.
