@@ -1,5 +1,7 @@
 # Trov Components
 
+:bangbang: This package is being deprecated. New version can be found at [Filament Addons](https://github.com/awcodes/filament-addons)
+
 A set of components, fields and layouts to extend Filament Admin.
 
 Used by [Trov CMS](https://github.com/awcodes/trov).
